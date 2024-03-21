@@ -1,9 +1,11 @@
 
-const WeatherButton=({cities})=>{
+const WeatherButton=({setCity, cities})=>{
 	
 	return(
 		<div>
-			<Button></Button>
+			{cities.map((city, index)=>{
+				<button onClick={()=>setCity(city)} key={index}>{city}</button>
+			})}
 		</div>
 	)
 }

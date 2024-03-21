@@ -13,6 +13,7 @@ function App() {
   const [isError, setIsError] = useState(false)
   const [error, setError] = useState('')
   const [weather, setWeather] = useState({})
+  const [city, setCity] = useState('')
   const cities =['paris', 'new york', 'tokyo', 'seoul']
 
   async function getCurrentLocationWeather(){
@@ -33,11 +34,28 @@ function App() {
       }
     })
   }
+  async function getCityWeather(){
+    try{
+      let url =`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+        const resp = await fetch(url)
+        const data = await resp.json()
+        console.log(`${city} weather :`, data)
+        setWeather(data)
+        setIsLoading(false)
+    }catch(e){
+      setIsError(true)
+      setError(e.message)
+      setIsLoading(false)
+    }
+  }
 
   useEffect(()=>{
     getCurrentLocationWeather()
   },[])
-
+  useEffect(()=>{
+    if(city=='') return;
+    getCityWeather()
+  },[city])
 
   if(isLoading){
     return <h1>Loading...</h1>
@@ -50,7 +68,9 @@ function App() {
     <div className="App">
       <div className="container">
         <WeatherBox weather={weather} />
-        <WeatherButton cities={cities} />
+        <WeatherButton 
+          setCity={setCity}
+          cities={cities} />
       </div>
     </div>
   );
