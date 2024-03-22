@@ -1,10 +1,11 @@
-
-const WeatherButton=({setCity, cities})=>{
+import {Button} from 'react-bootstrap'
+const WeatherButton=({getCurrentLocationWeather, setCity, cities})=>{
 	
 	return(
-		<div>
+		<div className="button-area">
+			<Button variant="success" className="buttons" onClick={()=>setCity('')}>Here</Button>
 			{cities.map((city, index)=>{
-				<button onClick={()=>setCity(city)} key={index}>{city}</button>
+				return <Button variant="warning" className="buttons" onClick={()=>setCity(city)} key={index}>{city}</Button>
 			})}
 		</div>
 	)

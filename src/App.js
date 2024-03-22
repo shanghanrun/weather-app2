@@ -4,6 +4,7 @@ import './App.css';
 import {Alert} from 'react-bootstrap'
 import WeatherBox from './components/WeatherBox';
 import WeatherButton from './components/WeatherButton';
+import MapComponent from './components/MapComponent';
 
 function App() {
   const apiKey=process.env.REACT_APP_API_KEY
@@ -50,11 +51,11 @@ function App() {
   }
 
   useEffect(()=>{
-    getCurrentLocationWeather()
-  },[])
-  useEffect(()=>{
-    if(city=='') return;
-    getCityWeather()
+    if(city==='') {
+      getCurrentLocationWeather()
+    } else{
+      getCityWeather()
+    }
   },[city])
 
   if(isLoading){
@@ -71,6 +72,9 @@ function App() {
         <WeatherButton 
           setCity={setCity}
           cities={cities} />
+        {/* <div className="map">
+          <MapComponent latitude={37.5665} longitude={126.978} />
+        </div> */}
       </div>
     </div>
   );
