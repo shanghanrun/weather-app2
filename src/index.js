@@ -4,16 +4,14 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import {NavermapsProvider} from 'react-naver-maps'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const queryClient = new QueryClient()
+const clientId = 'wso9ppyxtb'
 root.render(
-  <QueryClientProvider client={queryClient}>
-    <React.StrictMode>
+  <NavermapsProvider ncpClientId={clientId}>
       <App />
-    </React.StrictMode>
-  </QueryClientProvider>
+  </NavermapsProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
