@@ -7,7 +7,7 @@ function MyMap({ lat, lon, zoom }) {
   console.log('현재 map 위치:', lat, lon)
   let mapCenter= new navermaps.LatLng(lat, lon);
   return (
-    <MapDiv className="naver-map" style={{ width: '35%',height: '80vh'}}>
+    <MapDiv className="naver-map" style={{ width: '80%',height: '80vh'}}>
       <NaverMap
         center={mapCenter}
         zoom={zoom}
