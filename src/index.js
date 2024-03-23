@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {NavermapsProvider} from 'react-naver-maps'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const clientId = 'wso9ppyxtb'
+const clientId = process.env.REACT_APP_CLIENT_ID;
 root.render(
   <NavermapsProvider ncpClientId={clientId}>
       <App />

@@ -18,7 +18,7 @@ function App() {
   const [lat, setLat] = useState(36.6542848)
   const [lon, setLon] = useState(127.4740736)
   const [zoom, setZoom] = useState(7);
-  const cities =['paris', 'new york', 'tokyo', 'seoul']
+  const cities =['seoul', 'jeju', 'tokyo', 'new york']
 
 
   async function getCurrentLocationWeather(){
