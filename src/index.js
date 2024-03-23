@@ -9,7 +9,7 @@ import {NavermapsProvider} from 'react-naver-maps'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const clientId = process.env.REACT_APP_CLIENT_ID;
 root.render(
-  <NavermapsProvider ncpClientId={clientId}>
+  <NavermapsProvider ncpClientId="704bu22xon">
       <App />
   </NavermapsProvider>
 );
